@@ -86,7 +86,7 @@ const signUP = async (req, res) => {
   try {
     const existingUser = await pool.query(
       "SELECT * FROM users WHERE email = ?",
-      [email]
+      email
     );
 
     if (existingUser[0].length !== 0) {
