@@ -1,7 +1,7 @@
 // Frontend code
 import axios from "axios";
 
-const BaseUrl = "http://localhost:5000/api/v1";
+const BaseUrl = "https://forum-dbm4.onrender.com/api/v1";
 
 const endPoint = {
   LOGIN: `${BaseUrl}/login`,
