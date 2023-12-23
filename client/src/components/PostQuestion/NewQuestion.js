@@ -15,6 +15,7 @@ const navigate = useNavigate()
   const handlePost = async (e) => {
     e.preventDefault();
     const token = Cookies.get("token");
+    console.log("at newquestion",token)
 
     try {
       await axiosInstance.post(

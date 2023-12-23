@@ -86,7 +86,7 @@ const signUP = async (req, res) => {
   try {
     const existingUser = await pool.query(
       "SELECT * FROM users WHERE email = ?",
-      [email]
+      email
     );
 
     if (existingUser[0].length !== 0) {
@@ -100,20 +100,39 @@ const signUP = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
+
     // Insert a new user into the database
-    await pool.query(
+   const result = await pool.query(
       "INSERT INTO users (firstname, lastname, email, password) VALUES (?,?,?,?)",
       [firstname, lastname, email, hashedPassword]
     );
+//  const currentUser = await pool.query(
+//    "SELECT * FROM users WHERE email = ?",
+//    email
+//  );
 
+//  const userId = currentUser[0].userId;
+
+const [newUser] = await pool.query(
+  "SELECT userId FROM users WHERE email = ?",
+  email
+);
+
+const userId = newUser[0].userId
+console.log(" at Auth controller user Id query", userId)
     // Signing token
     let user = {
+      userId,
       firstname,
       lastname,
       email,
     };
 
     let token = jwt.sign(user, process.env.TOKEN_SECRET, { expiresIn: "30d" });
+
+
+
+
 
     return res.status(201).json({
       status: true,

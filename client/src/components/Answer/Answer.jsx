@@ -10,7 +10,7 @@ const Answer = () => {
   console.log(questionId);
 
   const { state } = useContext(AuthContext);
-const [fetchedAnswer, setFetchedAnswer] = useState("");
+  const [fetchedAnswer, setFetchedAnswer] = useState("");
   const [question, setQuestion] = useState({});
   const [answerText, setAnswerText] = useState("");
   const navigate = useNavigate();
@@ -62,29 +62,29 @@ const [fetchedAnswer, setFetchedAnswer] = useState("");
       console.log("Error posting answer:", error);
     }
   };
-const getAnswers = async () => {
-  const token = Cookies.get("token");
+  const getAnswers = async () => {
+    const token = Cookies.get("token");
 
-  try {
-    const response = await axiosInstance.get(
-      `${endPoint.QUESTIONS}/${questionId}/answers`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    // console.log(response.data.answers[0].answer);
-    // const finalAnswer = response.data.answers[0].answer; 
-     setFetchedAnswer(response.data.answers[0].answer);
-    // console.log(finalAnswer)// This should contain the fetched answers
-    // Further handling of the fetched answers...
-  } catch (error) {
-    console.log("Error fetching answers:", error);
-  }
-};
+    try {
+      const response = await axiosInstance.get(
+        `${endPoint.QUESTIONS}/${questionId}/answers`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // console.log(response.data.answers[0].answer);
+      // const finalAnswer = response.data.answers[0].answer;
+      setFetchedAnswer(response.data.answers[0].answer);
+      // console.log(finalAnswer)// This should contain the fetched answers
+      // Further handling of the fetched answers...
+    } catch (error) {
+      console.log("Error fetching answers:", error);
+    }
+  };
 
-  getAnswers()
+  getAnswers();
 
   const handleAnswer = async (e) => {
     e.preventDefault();

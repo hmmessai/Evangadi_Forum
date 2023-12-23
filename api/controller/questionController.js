@@ -6,7 +6,7 @@ const postQuestion = async (req,res)=>{
   const { question, questionDescription, questionCodeBlock, tags } = req.body;
 
 const userId = req.user.userId;
-console.log(userId)
+console.log("atpostquestion",userId)
 
   if(!question){
     return res.status(404).json({
