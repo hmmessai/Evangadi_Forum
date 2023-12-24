@@ -1,0 +1,4 @@
+.custom-div {
+  width: 100%; /* To occupy 70% of the container width after applying 15% padding on each side */
+  padding: 0 20%; /* 15% padding on both sides */
+}

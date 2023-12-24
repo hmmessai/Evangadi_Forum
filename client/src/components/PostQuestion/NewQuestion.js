@@ -3,7 +3,7 @@ import { axiosInstance, endPoint } from "../../endPoint/api";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Authv1/AuthContext";
-
+import FooterComp from "../../components/Footer/FooterComp";
 const NewQuestion = () => {
   const [title, setTitle] = useState("");
   const [questionDescription, setQuestionDescription] = useState("");
@@ -65,6 +65,7 @@ const navigate = useNavigate()
           Post Your Question
         </button>
       </form>
+      <FooterComp></FooterComp>
     </div>
   );
 };

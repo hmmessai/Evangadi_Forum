@@ -6,7 +6,7 @@ import { axiosInstance, endPoint } from "../../endPoint/api";
 import Cookies from "js-cookie";
 import NewQuestion from "../../components/PostQuestion/NewQuestion";
 import { Link, useNavigate } from "react-router-dom";
-
+import FooterComp   from "../../components/Footer/FooterComp";
 const Home = () => {
   const { state } = useContext(AuthContext);
 
@@ -41,36 +41,39 @@ const navigate = useNavigate();
   }, []);
 console.log(questions)
   return (
-    <section className="bg-body-tertiary">
-      <Header />
-      {/* <NewQuestion></NewQuestion> */}
-      <div className="d-flex justify-content-around pt-5 bg-body-tertiary">
-        <button
-          onClick={() => navigate("/questions")}
-          className="btn btn-primary action-btn px-5">
-          Ask Question
-        </button>
+    <section className="mb-64">
+      <section className="bg-body-tertiary">
+        <Header />
+        {/* <NewQuestion></NewQuestion> */}
+        <div className="d-flex justify-content-around pt-5 bg-body-tertiary">
+          <button
+            onClick={() => navigate("/questions")}
+            className="btn btn-primary action-btn px-5">
+            Ask Question
+          </button>
 
-        <p className="fw-semibold">
-          <span className="text-warning">Welcome,</span>{" "}
-          {state?.user?.firstname} {state?.user?.lastname}
-        </p>
-      </div>
-      <div className="container mt-5">
-        <h2>Questions</h2>
+          <p className="fw-semibold">
+            <span className="text-warning">Welcome,</span>{" "}
+            {state?.user?.firstname} {state?.user?.lastname}
+          </p>
+        </div>
+        <div className="container mt-5">
+          <h2>Questions</h2>
 
-        {/* from chatGpt */}
+          {/* from chatGpt */}
 
-        {questions?.map((question) => (
-          <Question
-            key={question.id}
-            firstname={question.firstname}
-            lastname={question.lastname}
-            question={question.question}
-            id={question.questionId}
-          />
-        ))}
-      </div>
+          {questions?.map((question) => (
+            <Question
+              key={question.id}
+              firstname={question.firstname}
+              lastname={question.lastname}
+              question={question.question}
+              id={question.questionId}
+            />
+          ))}
+        </div>
+      </section>
+      <FooterComp></FooterComp>
     </section>
   );
 };

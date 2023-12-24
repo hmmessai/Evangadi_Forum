@@ -1,16 +1,17 @@
-import React, { useContext } from 'react'
-import logo from '../../assets/evangadi-logo-home.png'
-import './Header.css'
-import { AuthContext } from '../Authv1/AuthContext'; 
+import React, { useContext } from "react";
+import logo from "../../assets/evangadi-logo-home.png";
+import "./Header.css";
+import { AuthContext } from "../Authv1/AuthContext";
 
 function Header() {
-  const {logout,state} = useContext(AuthContext)
+  const { logout, state } = useContext(AuthContext);
+
   return (
-    <section>
-      <nav className="navbar p-3 navbar-expand-lg ">
+    <div>
+      <nav className="navbar">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <img src={logo}></img>
+          <a className="navbar-brand" href="/home">
+            <img src={logo} alt="Logo" />
           </a>
           <button
             className="navbar-toggler"
@@ -23,7 +24,7 @@ function Header() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="collapse navbar-collapse justify-content-end fw-semibold "
+            className="collapse navbar-collapse justify-content-end fw-semibold"
             id="navbarNavAltMarkup">
             <div className="navbar-nav">
               <a
@@ -35,21 +36,21 @@ function Header() {
               <a className="nav-link align-items-center d-flex" href="#">
                 How It Works
               </a>
-              <a className="nav-link" href="#">
-
-                {state.isAuthenticated? <button onClick={()=>logout()} className="btn btn-primary fw-bold px-5 action-btn">
-                  SIGN OUT
-                </button>: <button className="btn btn-primary fw-bold px-5 action-btn">
-                  SIGN IN
-                </button>}
-               
+              <a className="nav-link" href="/home">
+                {state.isAuthenticated ? (
+                  <button onClick={() => logout()} className="action-btn">
+                    SIGN OUT
+                  </button>
+                ) : (
+                  <button className="action-btn">SIGN IN</button>
+                )}
               </a>
             </div>
           </div>
         </div>
       </nav>
-    </section>
+    </div>
   );
 }
 
-export default Header
+export default Header;

@@ -5,6 +5,8 @@ import { axiosInstance, endPoint } from "../../endPoint/api";
 import Cookies from "js-cookie";
 import { useNavigate, useParams } from "react-router-dom";
 import { LiaUserCircleSolid } from "react-icons/lia";
+import "./Answer.css"
+import FooterComp from "../../components/Footer/FooterComp";
 const Answer = () => {
   const { questionId } = useParams();
   console.log(questionId);
@@ -92,40 +94,46 @@ const Answer = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <h3>Question</h3>
+    <section>
+      <div className=" mb-7 custom-div">
+        <Header />
+        <h3>Question</h3>
 
-      {/* Display the Question */}
-      <p>{question?.question}</p>
-      <p>{question?.questionDescription}</p>
-      <hr />
-      <h2>Answers from the Commmunity</h2>
-      <hr />
-      <>
-        <LiaUserCircleSolid />
-        <p>{question?.firstname}</p>
-        <p>{fetchedAnswer}</p>
-      </>
+        {/* Display the Question */}
+        <h5>{question?.question}</h5>
+        <p>{question?.questionDescription}</p>
+        <hr />
+        <h3>Answers from the Commmunity</h3>
+        <hr />
+        <>
+          <div className="user">
+            <LiaUserCircleSolid />
+          </div>
 
-      <ans></ans>
+          <p>{question?.firstname}</p>
+          <p>{fetchedAnswer}</p>
+        </>
 
-      <form onSubmit={handleAnswer}>
-        <div className="mb-3">
-          <textarea
-            name=""
-            style={{ height: "200px" }}
-            placeholder="Your Answer..."
-            className="form-control"
-            value={answerText}
-            onChange={(e) => setAnswerText(e.target.value)}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Post Your Answer
-        </button>
-      </form>
-    </div>
+        <ans></ans>
+
+        <form onSubmit={handleAnswer}>
+          <div className="mb-3">
+            <textarea
+              name=""
+              style={{ height: "200px" }}
+              placeholder="Your Answer..."
+              className="form-control"
+              value={answerText}
+              onChange={(e) => setAnswerText(e.target.value)}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Post Your Answer
+          </button>
+        </form>
+      </div>
+      <FooterComp></FooterComp>
+    </section>
   );
 };
 

@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .action-btn:hover{
 background-color: #FF8500 ;
 }

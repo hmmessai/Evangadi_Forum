@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Authv1/AuthContext";
 import { useNavigate } from "react-router-dom";
-
+import FooterComp from "../../components/Footer/FooterComp";
 const Login = ({ setCurrentPage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,10 +27,7 @@ const navigate = useNavigate()
         <h3 className="m-3">Login into your account</h3>
         <p className="mb-5">
           Don't have an account?{" "}
-          <a
-            href=""
-            className="fw-semibold text-decoration-none text-warning"
-          >
+          <a href="" className="fw-semibold text-decoration-none text-warning">
             Create a new account
           </a>
         </p>
@@ -59,8 +56,7 @@ const navigate = useNavigate()
           <p className="d-flex justify-content-end">
             <a
               className="fw-semibold text-decoration-none text-warning"
-              href="#"
-            >
+              href="#">
               Forgot password?
             </a>
           </p>
@@ -68,12 +64,12 @@ const navigate = useNavigate()
         <div className="d-grid">
           <button
             type="submit"
-            className="btn btn-primary action-btn fs-5 fw-semibold"
-          >
+            className="btn btn-primary action-btn fs-5 fw-semibold">
             Login
           </button>
         </div>
       </form>
+      <FooterComp></FooterComp>
     </div>
   );
 };

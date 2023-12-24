@@ -143,7 +143,7 @@ import Header from "../../components/Header/Header";
 import bg from "../../assets/bg.jpg";
 import Login from "../../components/LogIn/LogIn";
 import SignUp from "../../components/SignUp/SignUp";
-
+import FooterComp from "../../components/Footer/FooterComp";
 function LandingLayout() {
   const [currentPage, setCurrentPage] = useState("signup"); // Fixed typo here
   return (
@@ -155,8 +155,7 @@ function LandingLayout() {
           background: `url(${bg})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-        }}
-      >
+        }}>
         <section className="container d-md-flex pt-5 gap-5">
           {/* form login/signup */}
           {currentPage === "login" && <Login setCurrentPage={setCurrentPage} />}
@@ -183,8 +182,7 @@ function LandingLayout() {
               <div>
                 <button
                   className="btn btn-warning text-white fw-bold py-2 px-5 mt-3 "
-                  style={{ background: "#fe8402" }}
-                >
+                  style={{ background: "#fe8402" }}>
                   How It Works
                 </button>
               </div>
@@ -192,6 +190,7 @@ function LandingLayout() {
           </div>
         </section>
       </main>
+      <FooterComp></FooterComp>
     </section>
   );
 }

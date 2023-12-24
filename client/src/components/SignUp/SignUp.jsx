@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import {AuthContext} from '../Authv1/AuthContext'
+import FooterComp from "../../components/Footer/FooterComp";
 const SignUp = ({ setCurrentPage }) => {
 
 const[user, setUser]= useState({
@@ -39,37 +40,56 @@ signup(user.firstname,user.lastname,user.email,user.password)
             type="email"
             className="form-control p-3"
             placeholder="Email Address"
-            onChange={(e)=>setUser((prev)=>{return{
-              ...prev, email:e.target.value
-            }})}
+            onChange={(e) =>
+              setUser((prev) => {
+                return {
+                  ...prev,
+                  email: e.target.value,
+                };
+              })
+            }
           />
           <div className="d-flex gap-4">
             <input
               type="text"
               className="form-control p-3"
               placeholder="First Name"
-              onChange={(e)=>setUser((prev)=>{return{
-              ...prev, firstname:e.target.value
-            }})}
+              onChange={(e) =>
+                setUser((prev) => {
+                  return {
+                    ...prev,
+                    firstname: e.target.value,
+                  };
+                })
+              }
             />
 
             <input
               type="text"
               className="form-control p-3"
               placeholder="Last Name"
-
-              onChange={(e)=>setUser((prev)=>{return{
-              ...prev, lastname:e.target.value
-            }})}
+              onChange={(e) =>
+                setUser((prev) => {
+                  return {
+                    ...prev,
+                    lastname: e.target.value,
+                  };
+                })
+              }
             />
           </div>
           <input
             type="password"
             className="form-control p-3"
             placeholder="Password"
-            onChange={(e)=>setUser((prev)=>{return{
-              ...prev, password:e.target.value
-            }})}
+            onChange={(e) =>
+              setUser((prev) => {
+                return {
+                  ...prev,
+                  password: e.target.value,
+                };
+              })
+            }
           />
         </div>
         <div className="p-3">
@@ -86,13 +106,15 @@ signup(user.firstname,user.lastname,user.email,user.password)
             <p className="d-flex justify-content-center">
               <a
                 className="fw-semibold text-decoration-none text-warning"
-                href="#" onClick={()=>setCurrentPage("login")}>
+                href="#"
+                onClick={() => setCurrentPage("login")}>
                 Already have an account?
               </a>
             </p>
           </div>
         </div>
       </form>
+      <FooterComp></FooterComp>
     </div>
   );
 };
