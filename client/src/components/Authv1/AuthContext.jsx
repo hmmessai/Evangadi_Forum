@@ -90,6 +90,7 @@ export const AuthProvider = ({ children }) => {
         console.log(response.data);
         const { token, user } = response.data;
         Cookie.set("token", token);
+        
         dispatch({
           type: "SET_USER",
           payload: user,
