@@ -69,7 +69,7 @@ const navigate = useNavigate()
           </button>
         </div>
       </form>
-      <FooterComp></FooterComp>
+
     </div>
   );
 };

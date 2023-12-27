@@ -147,15 +147,16 @@ import FooterComp from "../../components/Footer/FooterComp";
 function LandingLayout() {
   const [currentPage, setCurrentPage] = useState("signup"); // Fixed typo here
   return (
-    <section>
+    <section
+      className="landing bg-body-tertiary"
+      style={{
+        background: `url(${bg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+      }}
+      >
       <Header />
-      <main
-        className="landing bg-body-tertiary"
-        style={{
-          background: `url(${bg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}>
+      <main>
         <section className="container d-md-flex pt-5 gap-5">
           {/* form login/signup */}
           {currentPage === "login" && <Login setCurrentPage={setCurrentPage} />}

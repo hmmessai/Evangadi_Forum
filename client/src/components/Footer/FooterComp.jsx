@@ -7,7 +7,7 @@ const FooterComp = () => {
   return (
     <section
       style={{ marginTop: "400px" }}
-      className="top_Margin fixed-bottom h-64">
+      className="top_Margin h-64   relativePosition">
       <div className=" bg-[#3b455a]">
         <div className="block sm:flex sm:justify-evenly p-10 text-white">
           <div>

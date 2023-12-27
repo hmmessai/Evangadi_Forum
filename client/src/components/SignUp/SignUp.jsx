@@ -114,7 +114,7 @@ signup(user.firstname,user.lastname,user.email,user.password)
           </div>
         </div>
       </form>
-      <FooterComp></FooterComp>
+      
     </div>
   );
 };
