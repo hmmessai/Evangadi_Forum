@@ -3,6 +3,7 @@ const { postAnswer,getAllAnswersWithQuestions } = require("../controller/answerC
 const Router = express.Router();
 const { protect } = require("../controller/authController");
 
-Router.route("/questions/:questionId/answers").post(protect, postAnswer).get(protect,getAllAnswersWithQuestions)
+Router.route("/questions/:questionId/answers").post(protect, postAnswer)
+Router.route("/questions/:questionId/answers").get(protect,getAllAnswersWithQuestions)
 
 module.exports = Router; // Export the Router instance directly

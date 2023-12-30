@@ -176,7 +176,7 @@ const logIn = async (req, res) => {
 
     const { password: p, username, ...other } = user;
 
-    console.log(other);
+    // console.log(other);
 
     if (!(await bcrypt.compare(password, user.password))) {
       return res.status(400).json({
@@ -185,7 +185,7 @@ const logIn = async (req, res) => {
       });
     }
     let token = jwt.sign(user, process.env.TOKEN_SECRET, { expiresIn: "30d" });
-    console.log(token);
+    // console.log(token);
     // Successful login
     res.json({
       token: token,
@@ -263,7 +263,7 @@ const protect = async (req, res, next) => {
         });
     }
     req.user = decoded;
-    console.log(decoded);
+    // console.log(decoded);
     next();
   } catch (err) {
     res.json("You are not logged in or invalId token");

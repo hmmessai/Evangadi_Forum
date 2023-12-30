@@ -12,7 +12,7 @@ const Answer = () => {
   console.log(questionId);
 
   const { state } = useContext(AuthContext);
-  const [fetchedAnswer, setFetchedAnswer] = useState("");
+  const [fetchedAnswer, setFetchedAnswer] = useState([]);
   const [question, setQuestion] = useState({});
   const [answerText, setAnswerText] = useState("");
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ const Answer = () => {
         }
       );
       setAnswerText("");
-      navigate("/home");
+      // navigate("/home");
     } catch (error) {
       console.log("Error posting answer:", error);
     }
@@ -76,9 +76,9 @@ const Answer = () => {
           },
         }
       );
-      // console.log(response.data.answers[0].answer);
+      // console.log("Answer is the following: ",response.data.answers[0].answer);
       // const finalAnswer = response.data.answers[0].answer;
-      setFetchedAnswer(response.data.answers[0].answer);
+      setFetchedAnswer(response.data.answers);
       // console.log(finalAnswer)// This should contain the fetched answers
       // Further handling of the fetched answers...
     } catch (error) {
@@ -111,7 +111,13 @@ const Answer = () => {
           </div>
 
           <p>{question?.firstname}</p>
-          <p>{fetchedAnswer}</p>
+          <ul>{fetchedAnswer.map(item => <li>
+            
+            <b><LiaUserCircleSolid />{item.firstname}:</b>
+            <br/>
+            <p>{item.answer}</p>
+            </li>)}
+          </ul>
         </>
 
         <ans></ans>
